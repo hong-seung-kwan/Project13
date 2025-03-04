@@ -35,6 +35,7 @@ public class Quiz4 {
 		System.out.println();
 		// sorted: 정렬
 		// 스트림 안에 있는 요소는 인스턴스로 값을 정렬할 수 없다
+		// 4-1
 		list.stream().sorted(new Comparator<Customer>() {
 			// 두 수를 비교하여 순서를 결정
 			// 반환값: 양수 또는 음수
@@ -50,6 +51,13 @@ public class Quiz4 {
 			
 		})
 		.forEach(c -> System.out.print(c.name+" "+c.age+ " "));
+		System.out.println();
+		
+		// 4-2
+		list.stream()
+        .sorted(Comparator.comparingInt(Customer::getAge).reversed()). // 나이 순으로 정렬
+        forEach(c -> System.out.print(c.getName() + " "+ c.age+ " "));
+		
 		
 //		public int compare((o1, o2) -> {
 //			// 고객의 나이를 비교하여 양수 또는 음수를 반환
@@ -78,6 +86,31 @@ class Customer {
 		this.age = age;
 		this.price = price;
 	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
 	@Override
 	public String toString() {
 		return "Customer [name=" + name + ", age=" + age + ", price=" + price + "]";

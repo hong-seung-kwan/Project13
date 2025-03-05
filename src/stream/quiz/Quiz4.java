@@ -55,7 +55,7 @@ public class Quiz4 {
 		
 		// 4-2
 		list.stream()
-        .sorted(Comparator.comparingInt(Customer::getAge).reversed()). // 나이 순으로 정렬
+        .sorted(Comparator.comparing(Customer::getAge).reversed()). // 나이 순으로 정렬
         forEach(c -> System.out.print(c.getName() + " "+ c.age+ " "));
 		
 		
